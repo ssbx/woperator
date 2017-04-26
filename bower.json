@@ -1,0 +1,15 @@
+{
+  "name": "woperator",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~4.0.0-alpha.6"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "scss/bootstrap.scss",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
