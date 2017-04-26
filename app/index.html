@@ -1,78 +1,47 @@
-<!doctype html>
-<html lang="">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>woperator</title>
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Supercast console</title>
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css"></link>
+    <link rel="stylesheet" href="styles/console.css"></link>
     <!-- endbuild -->
-    
   </head>
+
   <body>
-    <!--[if IE]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills float-right">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-        <h3 class="text-muted">woperator</h3>
+    <div id="header">
+      <h1>Supercast console</h1>
+      <div id="status"></div>
+    </div>
+
+
+    <div id="navigation">
+
+      <p id="connecting">
+        <input type="text" id="user_name" value="admin" />
+        <input type="text" id="user_pass" value="password" />
+	      <button type="button" onclick="log_in();">authenticate</button>
+      </p>
+
+      <div id="connected">
+	      <p>
+	        <input type='text' id="channel_id" value=""/>
+	        <button type="button" onclick="subscribeEvent();">subscribe</button>
+          <button type="button" onclick="unsubscribeEvent();">unsubscribe</button>
+	      </p>
       </div>
 
-      <div class="jumbotron">
-        <h1 class="display-3">'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
+      <div id="content">
+	      <button id="clear" onclick="clearScreen()" >Clear text</button>
+        <div class="docs-code">
+          <pre>
+            <code id="output" class="bash">
+            </code>
+          </pre>
         </div>
       </div>
 
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
-      </div>
     </div>
-    
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -80,7 +49,7 @@
     <script src="/bower_components/tether/dist/js/tether.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+  
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap/js/dist/util.js"></script>
     <script src="/bower_components/bootstrap/js/dist/alert.js"></script>
@@ -94,9 +63,14 @@
     <script src="/bower_components/bootstrap/js/dist/tooltip.js"></script>
     <script src="/bower_components/bootstrap/js/dist/popover.js"></script>
     <!-- endbuild -->
-    
+  
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+
+    <!-- build:js scripts/socket.js -->
+    <script src="scripts/socket.js"></script>
+    <!-- endbuild -->
+
   </body>
-</html>
+</html> 
